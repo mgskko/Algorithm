@@ -7,4 +7,4 @@ for i in range(5):
 print(num)
 
 for i in range(1):
-        print(i,"d")
+        print(i)
