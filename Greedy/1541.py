@@ -1,8 +1,8 @@
-arr = input().split('-')
-s = 0
-for i in arr[0].split('+'):
-    s += int(i)
-for i in arr[1:]:
+a = input().split('-')
+c = 0
+for i in a[0].split('+'):
+    c += int(i)
+for i in a[1:]:
     for j in i.split('+'):
-        s -= int(j)
-print(s)
+        c -= int(j)
+print(c)
