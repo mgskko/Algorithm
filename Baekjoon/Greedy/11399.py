@@ -4,6 +4,6 @@ num = 0
 M.sort()
 
 for i in range(N):
-        for j in range(i + 1):
-                 num += M[j]
+    for j in range(i + 1):
+        num += M[j]
 print(num)
