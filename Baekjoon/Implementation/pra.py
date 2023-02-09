@@ -1,6 +1,3 @@
-a = [0, 0, 0, 0, 0, 0, 0]
-
-b = [1, 2, 3]
-
-a = [[0] * 3 for i in range(1)]
-print(a)
+x=str(1234)
+print(x[:int(len(x)/2)-1:-1])
+print(x[0:int(len(x)/2)])
