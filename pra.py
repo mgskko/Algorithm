@@ -1,2 +1,2 @@
-dp = [[0] * 30 for _ in range(30)]
-print(dp)
+n, k = list(map(int,input().split()))
+print(n)
