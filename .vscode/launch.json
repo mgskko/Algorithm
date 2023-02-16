@@ -6,7 +6,6 @@
   "configurations": [
     {
       "name": "Python: 현재 파일",
-      "args" : ["<", "input.txt", ">","output.txt"],
       "type": "python",
       "request": "launch",
       "program": "${file}",
