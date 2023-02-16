@@ -1,10 +1,12 @@
 n = int(input())
-k = list(map(int, input().split()))
-k1 = []
-
-k.sort(reverse=False)
 c = 0
-for num in k:
-  c += num
-  k1.append(c)
-print(sum(k1))
+
+while n >= 0:
+    if (n % 5) == 0:
+      c += n // 5
+      print(c)
+      break
+    n -= 3
+    c += 1
+else:
+  print(-1)
