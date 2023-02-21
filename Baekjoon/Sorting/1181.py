@@ -1,10 +1,8 @@
 import sys
 
 n = int(sys.stdin.readline())
-A = []
+A = list(sys.stdin.readline().strip() for _ in range(n))
 
-for i in range(n):
-    A.append(sys.stdin.readline().strip())
 A = list(set(A))
 A.sort()
 A.sort(key = len) 
