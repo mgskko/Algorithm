@@ -1,3 +1,6 @@
-n = int(input())
-
-k = list(set(str(input()) for _ in range(n)))
+a, b = map(int,input().split())
+n = list(map(int,input().split()))
+m = list(map(int,input().split()))
+c = n + m
+c.sort(reverse=True)
+print(*c)
