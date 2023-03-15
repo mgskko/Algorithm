@@ -1,5 +1,2 @@
-n = list([int(input()) for _ in range(5)])
-a = int(sum(n)/5)
-n.sort()
-print(a)
-print(n[2])
+dp = [[1]*31 for _ in range(31)]
+
