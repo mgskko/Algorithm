@@ -7,12 +7,12 @@ for i in range(n):
     elif k == 2:
         print(2)
     elif k == 3:
-        print(3)
+        print(4)
     else:
-        dp = [0] * 100
+        dp = [0] * 11
         dp[1] = 1
         dp[2] = 2
         dp[3] = 4
-        for j in range(4,n+1):
+        for j in range(4,11):
             dp[j] = dp[j-1]+dp[j-2]+dp[j-3]
-    print(dp[k])
+        print(dp[k])
