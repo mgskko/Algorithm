@@ -1,6 +1,12 @@
 n = int(input())
-k = list([input().split() for _ in range(n)])
-k.sort(key=lambda x : (-int(x[1]), int(x[2]),-int(x[3]), x[0]))
 
-for i in k:
-    print(i[0])
+a = [0] * (n+1)
+b = [0] * (n+1)
+
+a[0] = 1
+b[1] = 1
+
+for i in range(2,n+1):
+    a[i] = a[i-1] + a[i-2]
+    b[i] = b[i-1] + b[i-2]
+print(a[n],b[n])
