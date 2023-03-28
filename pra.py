@@ -1,12 +1,13 @@
+def dp(n, nums):
+    dp = [0] * n
+    dp[0] = nums[0]
+    max_sum = nums[0]
+
+    for i in range(1, n):
+        dp[i] = max(dp[i-1] + nums[i], nums[i])
+        max_sum = max(max_sum, dp[i])
+    return max_sum
+
 n = int(input())
-
-a = [0] * (n+1)
-b = [0] * (n+1)
-
-a[0] = 1
-b[1] = 1
-
-for i in range(2,n+1):
-    a[i] = a[i-1] + a[i-2]
-    b[i] = b[i-1] + b[i-2]
-print(a[n],b[n])
+nums = list(map(int, input().split()))
+print(dp(n, nums))
