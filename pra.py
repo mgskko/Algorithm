@@ -1,12 +1,14 @@
-n = int(input())
-p = list([int(input()) for i in range(n)])
-p.reverse()
-cnt = 0
-for i in range(1,n):
-    if p[i] >= p[i-1]:
-        dif = p[i-1] - 1
-        cnt += p[i] - dif
-        p[i] = dif
-        dif = 0
-    
+n, l = map(int, input().split())
+k = list(map(int,input().split()))
+k.sort(reverse=False)
+start = k[0]
+end = k[0] + l
+cnt = 1
+for i in range(n):
+    if start <= k[i] < end:
+        continue
+    else:
+        start = k[i]
+        end = k[i] + l
+        cnt += 1
 print(cnt)
