@@ -1,3 +1,4 @@
+
 n = int(input())
 p = list([int(input()) for i in range(n)])
 p.reverse()
