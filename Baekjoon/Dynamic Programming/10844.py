@@ -1,19 +1,27 @@
-N = int(input())
+import sys
+input = sys.stdin.readline
 
-dp = [[0]*10 for _ in range(N+1)]
-for i in range(1, 10):
+# 입력값 받기
+n = int(input())
+
+# 0 ~ 9까지의 수를 각 자리에 사용하는 경우의 수를 저장할 2차원 리스트 생성
+# i는 자리수, j는 0 ~ 9까지의 수
+dp = [[0 for _ in range(10)] for _ in range(n+1)]
+
+# 초기값 설정 (1자리 수일 때 각 숫자를 사용하는 경우의 수는 1)
+for i in range(1,10):
     dp[1][i] = 1
 
+# 나머지 자리수에 대해서 경우의 수 구하기
 MOD = 1000000000
+for i in range(2,n+1):   # i는 자리수
+    for j in range(10):  # j는 현재 자리에 올 수 있는 숫자
+        if j == 0:      # 현재 자리에 0이 올 경우
+            dp[i][j] = dp[i-1][j+1]   # 바로 다음 자리에 1이 오는 경우의 수
+        elif j == 9:    # 현재 자리에 9가 올 경우
+            dp[i][j] = dp[i-1][j-1]   # 바로 다음 자리에 8이 오는 경우의 수
+        else:           # 현재 자리에 0 ~ 8까지의 수가 올 경우
+            dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1] # 바로 다음 자리에 j-1 혹은 j+1이 오는 경우의 수 합
 
-for i in range(2, N+1):
-    for j in range(10):
-        if j == 0:
-            dp[i][j] = dp[i-1][1]
-        elif j == 9:
-            dp[i][j] = dp[i-1][8]
-        else:
-            dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1] 
-
-print(sum(dp[N]) % MOD)
-
+# n자리 수일 때 각 숫자를 사용하는 경우의 수를 모두 합한 후 1,000,000,000으로 나눈 나머지 출력
+print(sum(dp[n])% MOD)

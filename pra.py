@@ -1,17 +1,20 @@
-from collections import Counter
 import sys
-
 input = sys.stdin.readline
 
 n = int(input())
-n1 = list(map(int,input().split()))
-m = int(input())
-m1 = list(map(int,input().split()))
-t = []
+dp = [[0 for _ in range(10)] for _ in range(n+1)]
+for i in range(1,10):
+    dp[1][i] = 1
 
-count_n1 = Counter(n1)
+MOD = 1000000000
 
-for i in m1:
-    t.append(count_n1[i])
+for i in range(2,n+1):
+    for j in range(10):
+        if j == 0:
+            dp[i][j] = dp[i-1][j+1]
+        elif j == 9:
+            dp[i][j] = dp[i-1][j-1]
+        else:
+            dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
 
-print(*t)
+print(sum(dp[n])% MOD)
