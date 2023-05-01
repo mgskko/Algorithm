@@ -1,12 +1,5 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-a = list(map(int,input().split()))
-b = list(map(int,input().split()))
-a.sort(reverse=True)
-b.sort(reverse=False)
-s = 0
-for i in range(n):
-    s += a[i]* b[i]
-print(s)
+t = list(map(int, input().split()))
+
+for i in sorted(list(set(t))): #set으로 중복 방지, sorted로 정렬
+    print(i, end = ' ')
