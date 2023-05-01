@@ -1,5 +1,10 @@
-n = int(input())
-t = list(map(int, input().split()))
+t = int(input())
 
-for i in sorted(list(set(t))): #set으로 중복 방지, sorted로 정렬
-    print(i, end = ' ')
+for _ in range(t):
+    k = int(input())
+    n = int(input())
+    apt = [i for i in range(1, n+1)]
+    for i in range(k):
+        for j in range(1, n):
+            apt[j] += apt[j-1]
+    print(apt[-1])
