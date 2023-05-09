@@ -1,14 +1,18 @@
-import sys
-input = sys.stdin.readline
 n = int(input())
-t = [list(map(int, input().split())) for i in range(n)]
-t.sort(key = lambda x : (x[1], x[0]))
 
-last = 0 # 회의의 마지막 시간을 저장할 변수
-conut = 0 # 회의 개수를 저장할 변수
+# 회의 일정을 리스트의 리스트로 입력받습니다.
+t = [list(map(int, input().split())) for _ in range(n)]
+
+# 회의 일정을 끝 시간을 기준으로 오름차순으로 정렬하고, 끝 시간이 같은 경우 시작 시간을 기준으로 오름차순으로 정렬합니다.
+t.sort(key=lambda x: (x[1], x[0]))
+
+cnt = 0  # 최대로 예약할 수 있는 회의 수를 세는 변수입니다.
+last = 0  # 마지막으로 선택된 회의의 끝 시간을 기록하는 변수입니다.
 
 for i, j in t:
-    if i >= last: # 시작시간이 회의의 마지막 시간보다 크거나 같을경우
-        conut += 1
-        last = j
-print(conut)
+    # 현재 회의의 시작 시간이 마지막으로 선택된 회의의 끝 시간보다 크거나 같으면
+    if i >= last:
+        cnt += 1  # 예약된 회의 수를 증가시킵니다.
+        last = j  # 마지막으로 선택된 회의의 끝 시간을 현재 회의의 끝 시간으로 업데이트합니다.
+
+print(cnt)  # 최대로 예약할 수 있는 회의 수를 출력합니다.
