@@ -1,11 +1,15 @@
 import sys
 input = sys.stdin.readline
-n, k = map(int, input().split())
-ch = list(map(int,input().split()))
-
-ch.sort()
-diff = []
-for i in range(n-1):
-    diff.append(ch[i+1] - ch[i])
-diff.sort()
-print(sum(diff[:n-k]))
+n = int(input())
+t = list(map(int, input().split()))
+t.sort()
+cnt = 0
+k = []
+if (len(t) % 2) == 1:
+    k.append(t.pop(-1))
+for i in range(len(t)):
+    if t[i] > t[(len(t)-i-1)]:
+        break
+    k.append(t[i]+t[(len(t)-i-1)])
+    
+print(max(k))
