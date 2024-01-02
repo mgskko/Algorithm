@@ -6,6 +6,6 @@ word = list(set(str(sys.stdin.readline().strip()) for _ in range(n)))
 word.sort() # 오름차순 정렬
 word.sort(key=lambda x: len(x)) # 단어의 길이를 기준으로 오름차순 정렬
 
-# 반복문을 통해 단어를 출력
+# 반복문을 통해 단어를 출력1
 for i in word:
     print(i)
